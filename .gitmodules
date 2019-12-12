@@ -1,0 +1,3 @@
+[submodule "serialisable"]
+	path = thirdparty/serialisable
+	url = https://github.com/Dugy/serialisable.git
