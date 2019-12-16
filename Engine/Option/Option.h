@@ -14,15 +14,12 @@ namespace engine::option
     public:
         virtual void serialisation() override;
 
-        char key() const;
-        unsigned long id() const;
+        std::string key() const;
         std::string text() const;
-        unsigned long endScreen() const;
+        std::string endScreen() const;
 
     protected:
-        char _option_key;
-        unsigned long _end_screen_id, _option_id;
-        std::string _option_text;
+        std::string _option_text, _end_screen_id, _option_key;
     };
 }
 

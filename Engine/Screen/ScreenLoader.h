@@ -6,14 +6,21 @@
 #define BLUESTASIS_APOCRYPHA_SCREENLOADER_H
 
 #include "Screen.h"
+#include "../Chapter/Chapter.h"
 
 namespace engine::screen
 {
     class ScreenLoader {
     public:
-        ScreenLoader();
 
-        void loadScreen(const Screen& screen) const;
+        ScreenLoader(const chapter::Chapter& chapter);
+
+        void loadScreen(chapter::Chapter::screenIterator screen) const;
+
+    protected:
+        const chapter::Chapter& _chapter;
+
+        void printScreenText(chapter::Chapter::screenIterator screen) const;
     };
 
 }

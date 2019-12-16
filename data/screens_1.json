@@ -3,7 +3,34 @@
   "chapter": 1,
   "screens": [
     {
-
+      "id": "__start__",
+      "title": "A dangerous mission",
+      "content": "You are Silver, second son of Apal. Despite your father being a lowly farmer, you've managed to become a great sorcerer and a virtuoso violin player, combining the two arts with stealth to get an edge in the dangerous world that is the Underworld. Yes, that's right, you're dead. Or better, you died and some elder god of unknown origin deemed your ambition worthy of a second chance. Now you serve them, as your former family prays for you by your empty grave.",
+      "options": [
+        {
+          "target": "dan_mission_2",
+          "key": "1",
+          "text": "Go on"
+        }
+      ]
+    },
+    {
+      "id": "dan_mission_2",
+      "title": "A dangerous mission (2)",
+      "content": "This is one of the few moments of respite that your grand general allows you, and you know exactly how to fill the gap. You're playing a concert. Well, not just any concert, mind you. Under false name, you still trot the above world. Your pseudonym 'Sapphire Cord', named after your conspicuous blue hair, is known far and wide in the realm, and grants you the most exclusive places in any gig around the four corners. This concert will be played tonight, in a few hours to be precise, at the grand merchant Tiarai's private mansion. Tiarai is one of the most powerful and influential men of Adurza, the same province where you learned to play.",
+      "options": [
+        {
+          "target": "dan_mission_3",
+          "key": "1",
+          "text": "Go on"
+        }
+      ]
+    },
+    {
+      "id": "dan_mission_3",
+      "title": "A dangerous mission (3)",
+      "content": "This time, though, you aren't in for the money. Tiarai holds a secret stash of documents and ledgers in his treasure room, an automated, secured vault far away from prying eyes. You are going to steal an access key to the room - if you manage to find it - and secure your way to the documents. Your target in that pile of knowledge is not leverage towards riches and power: these are futile to the dead. No, your only hope in this mad plan is to catch a glimpse of your teacher's name in some ledger. Dane Thurion shaped your life in what seemed like countless years: you thought you were pretty good with your violin before meeting him, but as soon as you graduated from general classes and became his disciple you knew you were wrong. Now, after your death, you've come to realise he's probably similar to you in power and heritage - and you want answers."
     }
+
   ]
 }

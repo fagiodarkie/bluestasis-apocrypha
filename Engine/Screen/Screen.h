@@ -18,14 +18,14 @@ namespace engine::screen
 
         std::string title() const;
         std::string text() const;
-        unsigned long id() const;
+        std::string id() const;
 
         option_iterator firstOption() const;
         option_iterator lastOption() const;
+        option_iterator option(const std::string& option_key) const;
 
     protected:
-        std::string _title, _text;
-        unsigned long _id;
+        std::string _title, _text, _id;
         std::vector<option::Option> _options;
     };
 }

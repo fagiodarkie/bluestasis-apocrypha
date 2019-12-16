@@ -1,6 +1,18 @@
 #include <iostream>
+#include "Engine/Chapter/Chapter.h"
+#include "Engine/Screen/ScreenLoader.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
+
+    engine::chapter::Chapter startChapter;
+    startChapter.load("..\\data\\screens_1.json");
+
+    engine::screen::ScreenLoader screenLoader(startChapter);
+
+    screenLoader.loadScreen(startChapter.screen("__start__"));
+
+    std::string in;
+    std::cin >> in;
     return 0;
 }

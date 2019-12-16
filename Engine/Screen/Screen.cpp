@@ -20,7 +20,7 @@ namespace engine::screen
     std::string Screen::text() const {
         return _text;
     }
-    unsigned long Screen::id() const {
+    std::string Screen::id() const {
         return _id;
     }
 
@@ -32,6 +32,14 @@ namespace engine::screen
     Screen::option_iterator Screen::lastOption() const
     {
         return _options.cend();
+    }
+
+    Screen::option_iterator Screen::option(const std::string & option_key) const
+    {
+        for (auto option = firstOption(); option != lastOption(); ++option)
+            if (option->key() == option_key)
+                return option;
+        throw 2;
     }
 
 }

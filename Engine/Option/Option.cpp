@@ -7,25 +7,20 @@
 namespace engine::option
 {
     void Option::serialisation() {
-        synch("optionId", _option_id);
-        synch("endScreenId", _end_screen_id);
-        synch("optionKey", _option_key);
-        synch("optionText", _option_text);
+        synch("target", _end_screen_id);
+        synch("key", _option_key);
+        synch("text", _option_text);
     }
 
-    char Option::key() const {
+    std::string Option::key() const {
         return _option_key;
-    }
-
-    unsigned long Option::id() const {
-        return _option_id;
     }
 
     std::string Option::text() const {
         return _option_text;
     }
 
-    unsigned long Option::endScreen() const {
+    std::string Option::endScreen() const {
         return _end_screen_id;
     }
 
