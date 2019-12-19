@@ -23,13 +23,30 @@
           "target": "dan_mission_3",
           "key": "1",
           "text": "Go on"
+        },
+        {
+          "target": "exit",
+          "key": "2",
+          "text": "I don't want it! No! I'm afraid of the crowd!"
         }
       ]
     },
     {
       "id": "dan_mission_3",
       "title": "A dangerous mission (3)",
-      "content": "This time, though, you aren't in for the money. Tiarai holds a secret stash of documents and ledgers in his treasure room, an automated, secured vault far away from prying eyes. You are going to steal an access key to the room - if you manage to find it - and secure your way to the documents. Your target in that pile of knowledge is not leverage towards riches and power: these are futile to the dead. No, your only hope in this mad plan is to catch a glimpse of your teacher's name in some ledger. Dane Thurion shaped your life in what seemed like countless years: you thought you were pretty good with your violin before meeting him, but as soon as you graduated from general classes and became his disciple you knew you were wrong. Now, after your death, you've come to realise he's probably similar to you in power and heritage - and you want answers."
+      "content": "This time, though, you aren't in for the money. Tiarai holds a secret stash of documents and ledgers in his treasure room, an automated, secured vault far away from prying eyes. You are going to steal an access key to the room - if you manage to find it - and secure your way to the documents. Your target in that pile of knowledge is not leverage towards riches and power: these are futile to the dead. No, your only hope in this mad plan is to catch a glimpse of your teacher's name in some ledger. Dane Thurion shaped your life in what seemed like countless years: you thought you were pretty good with your violin before meeting him, but as soon as you graduated from general classes and became his disciple you knew you were wrong. Now, after your death, you've come to realise he's probably similar to you in power and heritage - and you want answers. But he's gone: disappeared from records, people's memories, places he roamed and lived in. It's as if he never existed."
+    },
+    {
+      "id": "exit",
+      "title": "A fool and a stupid I am",
+      "content": "'Shame on me', you think while adjusting your breath, tapping nervously on the glass of the carriage that's bringing you to the Tiarai mansion. 'I should have grown a big enough ego to be pleased of the crowds'. But you are not being completely honest with yourself. The usual gigs are actually fairly easy for you to manage: your supernatural abilities allow you to instantly increment your proficiency with any instrument, and the sorceries you can play on it may shatter the mind and heart of a simple mortal, putting him on his fours or even killing him on the spot. You're a genius, you're powerful, and you're famous - and simple money gigs are no more than pretexts to keep yourself warm with the bow and gather some good coin in the process.",
+      "options": [
+        {
+          "target": "dan_mission_3",
+          "key": "1",
+          "text": "Go on"
+        }
+      ]
     }
 
   ]

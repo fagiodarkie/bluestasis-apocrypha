@@ -25,7 +25,7 @@ namespace engine::screen {
                 std::cout << " [" << option->key() << "] " << option->text() << "\r\n";
             }
 
-            std::cout << std::endl << "\t > " << std::flush;
+            std::cout << "\r\n\t >  " << std::flush;
 
             std::cin >> choice;
 

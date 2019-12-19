@@ -12,6 +12,7 @@ int main() {
 
     screenLoader.loadScreen(startChapter.screen("__start__"));
 
+    std::cout << "Press any key to end the game" << std::endl;
     std::string in;
     std::cin >> in;
     return 0;
