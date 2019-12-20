@@ -17,7 +17,7 @@
     {
       "id": "dan_mission_2",
       "title": "A dangerous mission (2)",
-      "content": "This is one of the few moments of respite that your grand general allows you, and you know exactly how to fill the gap. You're playing a concert. Well, not just any concert, mind you. Under false name, you still trot the above world. Your pseudonym 'Sapphire Cord', named after your conspicuous blue hair, is known far and wide in the realm, and grants you the most exclusive places in any gig around the four corners. This concert will be played tonight, in a few hours to be precise, at the grand merchant Tiarai's private mansion. Tiarai is one of the most powerful and influential men of Adurza, the same province where you learned to play.",
+      "content": "This is one of the few moments of respite that your grand general allows you, and you know exactly how to fill the gap. You're playing a concert. Well, not just any concert, mind you. Under false name, you still trot the above world. Your pseudonym 'Sapphire Cord', named after your conspicuous blue hair, is known far and wide in the realm, and grants you the most exclusive places in any gig around the four corners. This concert will be played tonight, in a few hours to be precise, at the grand merchant Tiarai's private mansion. Tiarai is one of the most powerful and influential men of Adurza, the same province where you learned to play. You have been given no written notice of your commitment or your status as guest, save for a silver pin and detailed instruction to keep the pin visible when arriving the mansion. People are strange, rich and powerful people more than others, so you composedly accepted the situation - in their mind, it would be bad for their reputation if the first violin didn't manage to show up for the party.",
       "options": [
         {
           "target": "dan_mission_3",
@@ -25,7 +25,7 @@
           "text": "Go on"
         },
         {
-          "target": "exit",
+          "target": "dan_mission_fear",
           "key": "2",
           "text": "I don't want it! No! I'm afraid of the crowd!"
         }
@@ -34,10 +34,17 @@
     {
       "id": "dan_mission_3",
       "title": "A dangerous mission (3)",
-      "content": "This time, though, you aren't in for the money. Tiarai holds a secret stash of documents and ledgers in his treasure room, an automated, secured vault far away from prying eyes. You are going to steal an access key to the room - if you manage to find it - and secure your way to the documents. Your target in that pile of knowledge is not leverage towards riches and power: these are futile to the dead. No, your only hope in this mad plan is to catch a glimpse of your teacher's name in some ledger. Dane Thurion shaped your life in what seemed like countless years: you thought you were pretty good with your violin before meeting him, but as soon as you graduated from general classes and became his disciple you knew you were wrong. Now, after your death, you've come to realise he's probably similar to you in power and heritage - and you want answers. But he's gone: disappeared from records, people's memories, places he roamed and lived in. It's as if he never existed."
+      "content": "This time, though, you aren't in for the money. Tiarai holds a secret stash of documents and ledgers in his treasure room, an automated, secured vault far away from prying eyes. You are going to steal an access key to the room - if you manage to find it - and secure your way to the documents. Your target in that pile of knowledge is not leverage towards riches and power: these are futile to the dead. No, your only hope in this mad plan is to catch a glimpse of your teacher's name in some ledger. Dane Thurion shaped your life in what seemed like countless years: you thought you were pretty good with your violin before meeting him, but as soon as you graduated from general classes and became his disciple you knew you were wrong. Now, after your death, you've come to realise he's probably similar to you in power and heritage - and you want answers. But he's gone: disappeared from records, people's memories, places he roamed and lived in. It's as if he never existed.",
+      "options": [
+        {
+          "target": "entrance_1",
+          "key":"1",
+          "text":"Where has he gone?"
+        }
+      ]
     },
     {
-      "id": "exit",
+      "id": "dan_mission_fear",
       "title": "A fool and a stupid I am",
       "content": "'Shame on me', you think while adjusting your breath, tapping nervously on the glass of the carriage that's bringing you to the Tiarai mansion. 'I should have grown a big enough ego to be pleased of the crowds'. But you are not being completely honest with yourself. The usual gigs are actually fairly easy for you to manage: your supernatural abilities allow you to instantly increment your proficiency with any instrument, and the sorceries you can play on it may shatter the mind and heart of a simple mortal, putting him on his fours or even killing him on the spot. You're a genius, you're powerful, and you're famous - and simple money gigs are no more than pretexts to keep yourself warm with the bow and gather some good coin in the process.",
       "options": [
@@ -45,6 +52,95 @@
           "target": "dan_mission_3",
           "key": "1",
           "text": "Go on"
+        }
+      ]
+    },
+    {
+      "id": "entrance_1",
+      "title": "Getting inside Tiarai Mansion",
+      "content": "'Where has he gone?', you ask yourself again as you get down the carriage. The travel was long and tiresome, but you're accustomed to worse treatment. The hardest part comes now, with Tiarai Mansion in front of you. Tiarai is no fool, and took precautions to avoid break-ins. Some powerful sorcerers isolated his villa up in the sky, such that the only access to it is through a series of essence-powered bridges connecting levitating platforms. The slabs of light gray / blueish stone, dimly fluorescent, are shaped as flat squares with sides roughly 20 feet long, and float at different levels around the central slab, some as high as 300 feet. High columns in classic style rise from their edges, holding up blueish glass roofs. The central slab, gigantic in size, can be only dimly seen in the distance, the dark of dusk concealing its details. Only some faint light above it suggest that the 1000 square feet stone piece levitating so far from the ground is actually hosting a building. 'Nice aesthetics', you think as you approach the gate. 'It may be nice to try and sculpt something similar in my spiritual world'.",
+      "options": [
+        {
+          "target": "entrance_2",
+          "key": "1",
+          "text": "To the gate"
+        }
+      ]
+    },
+    {
+      "id": "entrance_2",
+      "title": "Getting inside Tiarai Mansion (2)",
+      "content": "The ground has no visible wall, save for a 30 feet tall metal gate, closed and supported by two imposing stone columns. It is obviously meant for keeping out spirits and other mystical creatures: probably there is a magic circle around the whole field, and only those who are 'invited' and pass through the gate are allowed in. As you get near the gate, an androgynous figure with delicate features and straight, long white hair, clad in a white and light blue yukata approaches you. 'Master Sapphire, please be welcome to Lord Tiarai's humble domain.' he says in a soft voice, hinting a 20 degrees bow that reveals his refined manners. 'Would you now carefully follow me.' he tells you before turning his back and start walking towards the gate. You're unsure of the man's mystical origins: he may not be human at all. Maybe a spirit subdued to the will of Tiarai, or more probably one bound by alchemists and viziers and sold to him at a high price. You can't even begin to imagine how much did Tiarai pay for this setup, or who did he threaten.",
+      "options": [
+        {
+          "target": "entrance_3",
+          "key": "1",
+          "text": "Follow the butler"
+        },
+        {
+          "target": "entrance_check",
+          "key": "2",
+          "text": "Take your time and dawdle a bit"
+        }
+      ]
+    },
+    {
+      "id": "entrance_check",
+      "title": "Getting inside Tiarai Mansion (looking around)",
+      "content": "Your step, directed towards the gate, slows to a halt as you lift your gaze again to the unusual display. The towering slabs of floating stone glow in the dark evening, and don't show any sign of being connected. Their distance, about 15 - 20 feet in average, is too much for a man to jump, especially when climbing the slabs as the vertical distance between the nearest ones is higher than a large man's height. The villa does not need a physical wall indeed: no human thief could sneak or force himself in, and no mystical creature could enter without being invited. You wonder if it's more the taste of opulence powerful people often have, or the actual value being held in the mansion, that drove Tiaran in designing this peculiar architecture. You smirk a bit. With your normal human prowess you're as helpless as a child, but you can enhance your muscles with raw essence and cover larger distances in a graceful jump. The distance of the slabs can be for you the same as two steps of a staircase, if you so wished.",
+      "options": [
+        {
+          "target": "entrance_check_2",
+          "key": "1",
+          "text": "Go on"
+        }
+      ]
+    },
+    {
+      "id": "entrance_check_2",
+      "title": "Getting inside Tiarai Mansion (looking around)",
+      "content": "But you survived so long because your (well, relatively) unassuming looks didn't betray your power. You're still mortal, and can only show off in circumstances where all witnesses can be made silent. You're not a fighter: someone with your power level who invested heavily in martial power could think about forcing his way in the mansion without consequences besides a little bloodshed. You need to be more subtle in your ways. Right now you're playing the role of a talented musician, hired to entertain an elite for a celebration of some sort. People will take a look at you because of your talent, but will not remember your name among all the important people to befriend. You have an alibi and a cover: you have no need to draw attention to yourself.",
+      "options": [
+        {
+          "target": "entrance_3",
+          "key": "1",
+          "text": "Go on"
+        }
+      ]
+    },
+    {
+      "id": "entrance_3",
+      "title": "Getting inside Tiarai Mansion (3)",
+      "content": "Your thoughts are interrupted by the sudden realisation that the butler has turned again and is waiting for you beside the gate. His physical shape would be unable to even rock the massive steel beams, and there are no visible pulls to move it remotely, but his movements suggest that he will open the gate for you. As you calmly approach the gate, balancing the uneasiness of dealing with the unknown situation with the thrill of challenging the butler, he just turns and opens the palm of his left hand towards the gate. The steel beams shriek as the metal mass is moved by invisible forces, and the gate slowly opens in two wings around the pillars. From the entrance a soft white glowing light shines on thin beams of what seem like pure essence, detailing a set of steps that depart towards the nearest slab. 'So it's an essence-powered staircase', you realise while following the man on the set of stairs. The soft warmness of the evening doesn't protect you from a chilling sensation as you lean on the first step: the essence floor offers a satisfying resistance, but has been obviously built by disciples of the northern realm. Their affinity with air essence would surely help these stones stay in the air, but the cold surfaces are inevitable and obvious side effects. Not really your predominant element, but not your opposite either, you think as you start to climb the staircase.",
+      "options": [
+        {
+          "target": "entrance_4",
+          "key": "1",
+          "text": "Let's climb to the mansion!"
+        }
+      ]
+    },
+    {
+      "id": "entrance_4",
+      "title": "Getting inside Tiarai Mansion (4)",
+      "content": "The climb is long and silent. You're surprised there are no other people around while you and the butler rise, slab after slab, to the point that panicked thoughts start to dwell in your mind. Is this the right place? It's not a setup, is it? Am I being framed? Deceived, maybe? Did I miss the date? Did something about me reveal my intentions? All these thoughts interfere with the atmosphere during the climb, which is almost dreamlike. Slow step after slow step, your two figures almost float in the sky, in a relentless yet delicate ascend towards the mansion. As it grows nearer and nearer, you can finally make up the size of the mansion. Several small stones float around it, holding artificial trees and essence-powered fountains. A pathway of small stones kept together by essence, like rocks on the main road of a small town, outline the way to the front doors. The mansion itself, towering steeply from the edges of the slab, seems to be a three-storey building. White marble columns rise to the edges and regularly decorate the walls, separating the wide full-arched windows scattered on the facades. It is made of bricks, but ones of a kind you don't recognise, of a smooth and regular material, maybe polished stone. Flower garlands and velvet drapes hang from the windows. It is indeed a refined view, and confirms your suspicion that the staircase was used more for opulent obstentation than for security reasons. As you take your eyes off the house, you see again the butler waiting for you, his hand inviting you to enter the door. With the same gesture as before he opens the door, and the moment you cross it he vanishes in a whirlwind of white fluff, with the silver pin that was given to you weeks ago. You're in, and when you'll get out there will be no way to enter again.",
+      "options": [
+        {
+          "target": "pre_party_1",
+          "key": "1",
+          "text": "Let's play then."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "title": "",
+      "content": "",
+      "options": [
+        {
+          "target": "",
+          "key": "1",
+          "text": ""
         }
       ]
     }
