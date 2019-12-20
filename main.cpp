@@ -3,8 +3,6 @@
 #include "Engine/Screen/ScreenLoader.h"
 
 int main() {
-
-
     engine::chapter::Chapter startChapter;
     startChapter.load("..\\data\\screens_1.json");
 

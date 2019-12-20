@@ -20,6 +20,9 @@ namespace engine::screen
     protected:
         const chapter::Chapter& _chapter;
 
+        void writeOption(const std::string& key, const std::string& text) const;
+        bool selectedOptionIsReserved(const std::string& selectedKey) const;
+
         void printScreenText(chapter::Chapter::screenIterator screen) const;
     };
 
