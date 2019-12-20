@@ -14,7 +14,7 @@ namespace gamestate {
     public:
         void saveGame(const gamesave::save::SaveEntry& saveEntry);
 
-        SaveEntry getSave(const std::string& saveId) const;
+        gamesave::save::SaveEntry getSave(const std::string& saveId) const;
     };
 
 }
