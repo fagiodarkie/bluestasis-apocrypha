@@ -18,23 +18,22 @@ namespace engine::screen {
     void ScreenLoader::mainMenu() const
     {
         title();
-        writeOption("n", "New game");
-        writeOption("l", "Load saved game");
-        writeOption("x", "Exit");
+        for (auto option: mainMenuOptions)
+            writeOption(option.first, option.second);
 
         std::string choice = playerChoice();
 
         switch(choice[0])
         {
-            case 'n': loadScreen(_chapter.screen("__start__")); break;
-            case 'l': loadGame(); break;
-            case 'x': exit();
+            case 'N': loadScreen(_chapter.screen("__start__")); break;
+            case 'L': loadGame(); break;
+            case 'X': exit();
         }
     }
 
     void ScreenLoader::title() {
-        std::cout << "   B L U E     S T A S I S\r\n"
-                     "    - A p o c r y p h a -\r\n\r\n";
+        std::cout << "\r\n   B L U E     S T A S I S\r\n"
+                        "    - A p o c r y p h a -\r\n\r\n";
     }
 
     void ScreenLoader::loadScreen(chapter::Chapter::screenIterator screen) const {
@@ -84,13 +83,15 @@ namespace engine::screen {
         std::cout << "LOAD GAME\r\n" << std::endl;
 
         auto saveNames = _gameState->saves();
-        int i = 0;
-        for (auto saveName: saveNames)
-            writeOption((char)('a' + i), saveName);
+        std::string choice;
+        do {
+            for (auto saveName: saveNames)
+                writeOption(saveName, _chapter.screen(_gameState->getSave(saveName).getScreenKey())->title());
 
-        std::string choice = playerChoice();
-        std::string saveChosen = saveNames[choice[0] - 'a'];
-        auto screenChosen = _chapter.screen(_gameState->getSave(saveChosen).getScreenKey());
+            choice = playerChoice();
+        }
+        while(std::find(saveNames.begin(), saveNames.end(), choice) == saveNames.end());
+        auto screenChosen = _chapter.screen(_gameState->getSave(choice).getScreenKey());
         loadScreen(screenChosen);
     }
 
@@ -122,15 +123,15 @@ namespace engine::screen {
 
     void ScreenLoader::processReservedOption(const std::string &option, const std::string &screenId) const {
         switch(option[0]) {
-            case 's': {
+            case 'S': {
                 std::string saveName;
                 std::cout << "Insert new save name: " << std::endl;
                 std::cin >> saveName;
                 saveGame(screenId, saveName);
                 break;
             }
-            case 'x':
-                exit();
+            case 'M': mainMenu(); break;
+            case 'X': exit();
         }
 
     }

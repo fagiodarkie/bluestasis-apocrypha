@@ -41,8 +41,15 @@ namespace engine::screen
         void exit() const;
 
         const std::map<std::string, std::string> reservedOptions = {
-                {"s", "Save"},
-                {"x", "Exit"}
+                {"S", "Save"},
+                {"M", "To Main Menu"},
+                {"X", "Exit"}
+        };
+
+        const std::map<std::string, std::string> mainMenuOptions = {
+                {"N", "New Game"},
+                {"L", "Load"},
+                {"X", "Exit"}
         };
 
         static void printScreenText(chapter::Chapter::screenIterator screen) ;
