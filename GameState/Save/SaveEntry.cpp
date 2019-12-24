@@ -5,19 +5,25 @@
 #include "SaveEntry.h"
 
 namespace gamesave::save {
-    SaveEntry::SaveEntry(std::string &name, std::string &chapterId, std::string &screenId)
+    SaveEntry::SaveEntry(const std::string& name, unsigned long chapterId, const std::string& screenId)
         : _name(name), _chapterId(chapterId), _screenId(screenId) { }
 
-    std::string SaveEntry::getChapter() const { return _chapterId; }
+    unsigned long SaveEntry::getChapter() const { return _chapterId; }
     std::string SaveEntry::getName() const { return _name; }
     std::string SaveEntry::getScreenKey() const { return _screenId; }
 
-    void SaveEntry::updateChapter(const std::string & newChapter) { _chapterId = newChapter; }
+    void SaveEntry::updateChapter(unsigned long newChapter) { _chapterId = newChapter; }
     void SaveEntry::updateScreenKey(const std::string & newScreen) { _screenId = newScreen; }
 
     void SaveEntry::serialisation() {
         synch("name", _name);
         synch("chapterKey", _chapterId);
         synch("screenKey", _screenId);
+    }
+
+    void SaveEntry::operator=(const SaveEntry &other) {
+        _name = other._name;
+        _chapterId = other._chapterId;
+        _screenId = other._screenId;
     }
 }

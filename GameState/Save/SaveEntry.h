@@ -11,19 +11,23 @@
 namespace gamesave::save {
     class SaveEntry : public Serialisable {
     public:
-        SaveEntry(std::string& name, std::string& chapterId, std::string& screenId);
+        SaveEntry() {}
+        SaveEntry(const std::string& name, unsigned long chapterId, const std::string& screenId);
 
         void serialisation() override;
 
         std::string getName() const;
-        std::string getChapter() const;
+        unsigned long getChapter() const;
         std::string getScreenKey() const;
 
-        void updateChapter(const std::string& newChapter);
+        void operator=(const SaveEntry& other);
+
+        void updateChapter(unsigned long newChapter);
         void updateScreenKey(const std::string& newScreen);
 
     private:
-        std::string _name, _chapterId, _screenId;
+        std::string _name, _screenId;
+        unsigned long _chapterId;
     };
 }
 

@@ -8,10 +8,12 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
 
 namespace engine::screen {
 
-    ScreenLoader::ScreenLoader(const chapter::Chapter& chapter) : _chapter(chapter) {}
+    ScreenLoader::ScreenLoader(const chapter::Chapter& chapter, std::shared_ptr<gamestate::IGameState> gameState)
+    : _chapter(chapter), _gameState(gameState) {}
 
     void ScreenLoader::mainMenu() const
     {
@@ -25,7 +27,8 @@ namespace engine::screen {
         switch(choice[0])
         {
             case 'n': loadScreen(_chapter.screen("__start__")); break;
-            case 'x': exit(0);
+            case 'l': loadGame(); break;
+            case 'x': exit();
         }
     }
 
@@ -35,7 +38,7 @@ namespace engine::screen {
     }
 
     void ScreenLoader::loadScreen(chapter::Chapter::screenIterator screen) const {
-        chapter::Chapter::screenIterator currentScreen = screen;
+        auto currentScreen = screen;
         std::string choice;
 
         printScreenText(currentScreen);
@@ -45,16 +48,28 @@ namespace engine::screen {
             {
                 writeOption(option->key(), option->text());
             }
+            for (const auto & option : reservedOptions)
+                writeOption(option.first, option.second);
 
             choice = playerChoice();
 
-            auto option = currentScreen->option(choice)->endScreen();
-            currentScreen = _chapter.screen(option);
-            printScreenText(currentScreen);
+            if (selectedOptionIsReserved(choice))
+            {
+                processReservedOption(choice, currentScreen->id());
+            }
+            else {
+                auto option = currentScreen->option(choice)->endScreen();
+                currentScreen = _chapter.screen(option);
+                printScreenText(currentScreen);
+            }
         }
     }
 
     void ScreenLoader::writeOption(const std::string &key, const std::string &text) const {
+        std::cout << " [" << key << "] " << text << "\r\n";
+    }
+
+    void ScreenLoader::writeOption(char key, const std::string &text) const {
         std::cout << " [" << key << "] " << text << "\r\n";
     }
 
@@ -65,7 +80,21 @@ namespace engine::screen {
         return choice;
     }
 
-    void ScreenLoader::printScreenText(chapter::Chapter::screenIterator  screen) const {
+    void ScreenLoader::loadGame() const {
+        std::cout << "LOAD GAME\r\n" << std::endl;
+
+        auto saveNames = _gameState->saves();
+        int i = 0;
+        for (auto saveName: saveNames)
+            writeOption((char)('a' + i), saveName);
+
+        std::string choice = playerChoice();
+        std::string saveChosen = saveNames[choice[0] - 'a'];
+        auto screenChosen = _chapter.screen(_gameState->getSave(saveChosen).getScreenKey());
+        loadScreen(screenChosen);
+    }
+
+    void ScreenLoader::printScreenText(chapter::Chapter::screenIterator  screen) {
         utils::ClearScreen();
         std::cout << "\r\n\t" << screen->title() << "\r\n\r\n";
         auto text = screen->text();
@@ -80,5 +109,33 @@ namespace engine::screen {
             std::cout << text << std::endl;
 
         std::cout << std::endl;
+    }
+
+    bool ScreenLoader::selectedOptionIsReserved(const std::string &selectedKey) const {
+        return reservedOptions.find(selectedKey) != reservedOptions.end();
+    }
+
+    void ScreenLoader::saveGame(const std::string &screenId, const std::string &name) const {
+        auto save = gamesave::save::SaveEntry(name, _chapter.id(), screenId);
+        _gameState->saveGame(save);
+    }
+
+    void ScreenLoader::processReservedOption(const std::string &option, const std::string &screenId) const {
+        switch(option[0]) {
+            case 's': {
+                std::string saveName;
+                std::cout << "Insert new save name: " << std::endl;
+                std::cin >> saveName;
+                saveGame(screenId, saveName);
+                break;
+            }
+            case 'x':
+                exit();
+        }
+
+    }
+
+    void ScreenLoader::exit() const {
+        ::exit(0);
     }
 }
