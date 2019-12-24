@@ -37,6 +37,18 @@ namespace engine::screen {
 
     void ScreenLoader::printScreenText(chapter::Chapter::screenIterator  screen) const {
         utils::ClearScreen();
-        std::cout << "\r\n\t" << screen->title() << "\r\n\r\n" << screen->text() << "\r\n\r\n";
+        std::cout << "\r\n\t" << screen->title() << "\r\n\r\n";
+        auto text = screen->text();
+        while (text.size() > 80)
+        {
+            int lastSpace = text.substr(0, 80).find_last_of(' ');
+            auto chunk = text.substr(0, lastSpace);
+            std::cout << chunk << std::endl;
+            text = text.substr(lastSpace + 1);
+        }
+        if (!text.empty())
+            std::cout << text << std::endl;
+
+        std::cout << std::endl;
     }
 }
