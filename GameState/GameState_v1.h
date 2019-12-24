@@ -12,9 +12,18 @@
 namespace gamestate {
     class GameState_v1 : public IGameState, public Serialisable {
     public:
-        void saveGame(const gamesave::save::SaveEntry& saveEntry);
+        GameState_v1();
 
-        gamesave::save::SaveEntry getSave(const std::string& saveId) const;
+        void saveGame(const gamesave::save::SaveEntry& saveEntry) override ;
+
+        gamesave::save::SaveEntry getSave(const std::string& saveId) const override;
+
+    protected:
+        void serialisation() override;
+
+        std::vector<gamesave::save::SaveEntry> saves;
+
+        static const std::string FILENAME;
     };
 
 }

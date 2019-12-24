@@ -18,6 +18,8 @@ namespace engine::chapter {
         screenIterator firstScreen() const;
         screenIterator screen(const std::string& screenId) const;
 
+        unsigned long id() const { return _chapterId; }
+
     protected:
         int _chapterSchema;
         unsigned long _chapterId;
