@@ -15,10 +15,14 @@ namespace engine::screen
 
         ScreenLoader(const chapter::Chapter& chapter);
 
+        void mainMenu() const;
         void loadScreen(chapter::Chapter::screenIterator screen) const;
 
     protected:
         const chapter::Chapter& _chapter;
+
+        static void title();
+        static std::string playerChoice();
 
         void writeOption(const std::string& key, const std::string& text) const;
         bool selectedOptionIsReserved(const std::string& selectedKey) const;

@@ -8,7 +8,7 @@ int main() {
 
     engine::screen::ScreenLoader screenLoader(startChapter);
 
-    screenLoader.loadScreen(startChapter.screen("__start__"));
+    screenLoader.mainMenu();
 
     std::cout << "Press any key to end the game" << std::endl;
     std::string in;
