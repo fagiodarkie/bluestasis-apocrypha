@@ -30,8 +30,6 @@ namespace engine::screen
 
         void writeOption(const std::string& key, const std::string& text) const;
 
-        void writeOption(char key, const std::string& text) const;
-
         bool selectedOptionIsReserved(const std::string& selectedKey) const;
 
         void saveGame(const std::string& screenId, const std::string& name) const;
@@ -40,17 +38,9 @@ namespace engine::screen
 
         void exit() const;
 
-        const std::map<std::string, std::string> reservedOptions = {
-                {"S", "Save"},
-                {"M", "To Main Menu"},
-                {"X", "Exit"}
-        };
+        const static std::map<std::string, std::string> reservedOptions;
 
-        const std::map<std::string, std::string> mainMenuOptions = {
-                {"N", "New Game"},
-                {"L", "Load"},
-                {"X", "Exit"}
-        };
+        const static std::map<std::string, std::string> mainMenuOptions;
 
         static void printScreenText(chapter::Chapter::screenIterator screen) ;
 

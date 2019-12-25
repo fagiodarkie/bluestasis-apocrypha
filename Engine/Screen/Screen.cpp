@@ -39,7 +39,8 @@ namespace engine::screen
         for (auto option = firstOption(); option != lastOption(); ++option)
             if (option->key() == option_key)
                 return option;
-        throw 2;
+
+        return lastOption();
     }
 
 }
