@@ -19,13 +19,14 @@ namespace engine::screen
         std::string title() const;
         std::string text() const;
         std::string id() const;
+        std::string sound() const;
 
         option_iterator firstOption() const;
         option_iterator lastOption() const;
         option_iterator option(const std::string& option_key) const;
 
     protected:
-        std::string _title, _text, _id;
+        std::string _title, _text, _id, _soundfile;
         std::vector<option::Option> _options;
     };
 }

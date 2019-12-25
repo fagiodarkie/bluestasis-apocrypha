@@ -5,10 +5,12 @@
 #include "ScreenLoader.h"
 #include "ScreenUtils.h"
 #include "../Chapter/Chapter.h"
-
+#include "../../GameState/GameState_v1.h"
+#include <filesystem>
 #include <iostream>
-#include <iomanip>
 #include <cstdlib>
+#include <windows.h>
+#include <mmsystem.h>
 
 namespace engine::screen {
 
@@ -31,6 +33,7 @@ namespace engine::screen {
     void ScreenLoader::mainMenu() const
     {
         std::string choice;
+        screenAudio("Menu.wav");
         title();
         do {
             for (const auto& option: mainMenuOptions)
@@ -61,6 +64,7 @@ namespace engine::screen {
         std::string choice;
 
         printScreenText(currentScreen);
+        screenAudio(currentScreen->sound());
         while (currentScreen->lastOption() != currentScreen->firstOption())
         {
             for (auto option = currentScreen->firstOption(); option != currentScreen->lastOption(); ++option)
@@ -79,6 +83,7 @@ namespace engine::screen {
                 auto option = currentScreen->option(choice)->endScreen();
                 currentScreen = _chapter.screen(option);
                 printScreenText(currentScreen);
+                screenAudio(currentScreen->sound());
                 choice = "";
             }
         }
@@ -87,6 +92,23 @@ namespace engine::screen {
     void ScreenLoader::writeOption(const std::string &key, const std::string &text) const
     {
         std::cout << " [" << key << "] " << text << "\r\n";
+    }
+
+    void ScreenLoader::screenAudio(const std::string &audioFile) const
+    {
+        if (_gameState->version() < 1)
+            return;
+
+        auto audioGameState = dynamic_cast<gamestate::GameState_v1*>(_gameState.get());
+        if (audioGameState->currentAudioFile() == audioFile)
+            return;
+
+        audioGameState->setCurrentAudioFile(audioFile);
+        std::string musicFile = audioGameState->audioDirectory() + audioFile;
+        if (std::filesystem::exists(musicFile))
+        {
+            PlaySound(TEXT(musicFile.c_str()), NULL, SND_FILENAME | SND_ASYNC);
+        }
     }
 
     std::string ScreenLoader::playerChoice()

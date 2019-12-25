@@ -14,14 +14,19 @@ namespace gamestate {
     public:
         GameState_v1();
 
-        void saveGame(const gamesave::save::SaveEntry& saveEntry) override ;
-        std::vector<std::string> saves() const override;
-        gamesave::save::SaveEntry getSave(const std::string& saveId) const override;
+        virtual void saveGame(const gamesave::save::SaveEntry& saveEntry) override ;
+        virtual std::vector<std::string> saves() const override;
+        virtual gamesave::save::SaveEntry getSave(const std::string& saveId) const override;
+
+        virtual std::string audioDirectory() const;
+        virtual std::string currentAudioFile() const;
+        virtual void setCurrentAudioFile(const std::string& audioFile);
 
     protected:
         void serialisation() override;
 
         std::vector<gamesave::save::SaveEntry> _saves;
+        std::string currentAudio;
 
         static const std::string FILENAME;
     };

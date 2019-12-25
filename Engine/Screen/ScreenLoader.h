@@ -42,7 +42,8 @@ namespace engine::screen
 
         const static std::map<std::string, std::string> mainMenuOptions;
 
-        static void printScreenText(chapter::Chapter::screenIterator screen) ;
+        static void printScreenText(chapter::Chapter::screenIterator screen);
+        void screenAudio(const std::string& audioFile) const;
 
         void loadGame() const;
     };

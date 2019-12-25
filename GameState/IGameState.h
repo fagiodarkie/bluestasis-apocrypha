@@ -16,6 +16,7 @@ namespace gamestate {
 
         virtual gamesave::save::SaveEntry getSave(const std::string& saveId) const = 0;
         virtual std::vector<std::string> saves() const = 0;
+        virtual int version() const { return _version; };
 
         virtual ~IGameState();
     protected:

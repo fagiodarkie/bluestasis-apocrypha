@@ -3,6 +3,8 @@
 #include "Engine/Screen/ScreenLoader.h"
 #include "GameState/GameState_v1.h"
 
+#pragma comment(lib, "winmm.lib")
+
 int main() {
     engine::chapter::Chapter startChapter;
     startChapter.load("..\\data\\screens_1.json");

@@ -10,6 +10,7 @@ namespace engine::screen
         synch("id", _id);
         synch("title", _title);
         synch("content", _text);
+        synch("soundfile", _soundfile);
         synch("options", _options);
     }
 
@@ -22,6 +23,9 @@ namespace engine::screen
     }
     std::string Screen::id() const {
         return _id;
+    }
+    std::string Screen::sound() const {
+        return _soundfile;
     }
 
     Screen::option_iterator Screen::firstOption() const
